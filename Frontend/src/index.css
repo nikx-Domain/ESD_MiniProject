@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: auto !important;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100%;
+  overflow: visible;
+  position: relative;
 }
 
 code {

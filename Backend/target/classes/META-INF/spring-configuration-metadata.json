@@ -4,6 +4,11 @@
       "name": "google.oauth",
       "type": "com.example.jpas.config.GoogleOAuthProperties",
       "sourceType": "com.example.jpas.config.GoogleOAuthProperties"
+    },
+    {
+      "name": "jwt",
+      "type": "com.example.jpas.config.JwtProperties",
+      "sourceType": "com.example.jpas.config.JwtProperties"
     }
   ],
   "properties": [
@@ -11,6 +16,21 @@
       "name": "google.oauth.client-id",
       "type": "java.lang.String",
       "sourceType": "com.example.jpas.config.GoogleOAuthProperties"
+    },
+    {
+      "name": "jwt.expiration",
+      "type": "java.lang.Long",
+      "sourceType": "com.example.jpas.config.JwtProperties"
+    },
+    {
+      "name": "jwt.issuer",
+      "type": "java.lang.String",
+      "sourceType": "com.example.jpas.config.JwtProperties"
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "sourceType": "com.example.jpas.config.JwtProperties"
     }
   ],
   "hints": []

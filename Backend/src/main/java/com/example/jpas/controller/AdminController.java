@@ -1,6 +1,7 @@
 package com.example.jpas.controller;
 
 import com.example.jpas.dto.GoogleLoginRequest;
+import com.example.jpas.dto.TraditionalLoginRequest;
 import com.example.jpas.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -9,12 +10,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("api/v1/")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
-
 
 public class AdminController {
     private final AdminService adminservice;
@@ -29,5 +28,15 @@ public class AdminController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred: " + e.getMessage());
         }
     }
-}
 
+    @PostMapping("auth/login/traditional")
+    public ResponseEntity<?> loginTraditional(@RequestBody @Valid TraditionalLoginRequest request) {
+        try {
+            return ResponseEntity.ok(adminservice.loginWithPassword(request));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid email or password");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred: " + e.getMessage());
+        }
+    }
+}

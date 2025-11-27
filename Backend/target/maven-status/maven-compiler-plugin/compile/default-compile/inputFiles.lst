@@ -6,7 +6,9 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\DomainRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\SecurityConfig.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\dto\GoogleLoginRequest.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\dto\TraditionalLoginRequest.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\Exception\UserNotFoundException.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\JwtUtil.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\CustomerRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\DomainService.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\Domain_course.java
@@ -21,6 +23,7 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\student_course.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\dto\LoginResponse.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\EncryptionService.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\PasswordHashGenerator.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\ScheduleRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\UserService.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\DomainIdController.java
@@ -28,6 +31,7 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\User.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\DomainIdService.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\DomainController.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\JwtProperties.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\CorsConfig.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\StudentController.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\CourseController.java
@@ -36,6 +40,7 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\faculty.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\domain.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\JpasApplication.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\PasswordConfig.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\ScheduleController.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\UserRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\GoogleOAuthService.java

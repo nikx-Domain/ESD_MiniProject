@@ -1,0 +1,209 @@
+import React, { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../Styles/domain.css";
+import { fetchDomains, fetchCourseByDomain } from "../utils/api";
+import { UserContext } from "../UserContext";
+
+const DomainList = () => {
+  const [domains, setDomains] = useState([]);
+  const [selectedDomain, setSelectedDomain] = useState();
+  const [selectedDomainName, setSelectedDomainName] = useState("");
+  const [courses, setCourses] = useState([]);
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [selectedDay, setSelectedDay] = useState("Monday");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetchDomains();
+        setDomains(response.data);
+      } catch (error) {
+        console.error("Error fetching domains:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const handleDomainSelection = async (program, batch) => {
+    setError(null);
+    const domain = domains.find(
+      (d) => d.program === program && d.batch === batch
+    );
+
+    if (!domain) {
+      setError("Domain not found");
+      return;
+    }
+
+    setSelectedDomain(domain.id);
+    setSelectedDomainName(program);
+    setLoading(true);
+
+    try {
+      const response = await fetchCourseByDomain(domain.id);
+      setCourses(response.data);
+      setSelectedDay("Monday"); // Reset to Monday when new domain selected
+    } catch (err) {
+      console.error("Error fetching courses:", err);
+      setError("Failed to load courses. Please try logging in again.");
+      if (err.response && err.response.status === 401) {
+        // Token might be expired
+        handleLogout();
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLogout = () => {
+    // Clear user data from context and localStorage
+    setUser(null);
+    localStorage.removeItem("user");
+    navigate("/");
+  };
+
+  // Get unique branches from domains
+  const imtechBranches = domains
+    .filter((d) => d.program.includes("iMTech"))
+    .map((d) => d.program.replace("iMTech ", ""));
+
+  const mtechBranches = domains
+    .filter((d) => d.program.includes("MTech") && !d.program.includes("iMTech"))
+    .map((d) => d.program.replace("MTech ", ""));
+
+  // Filter courses by selected day
+  const coursesForDay = courses.filter(
+    (course) => course.schedule && course.schedule.day === selectedDay
+  );
+
+  const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+
+  return (
+    <div>
+      {/* Header with user info and logout */}
+      <div className="app-header">
+        <h1>ACADEMIA</h1>
+        <div className="user-info">
+          <span className="user-name">Welcome, {user?.name || "User"}</span>
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
+      </div>
+
+      {/* Domain Selection - Only show when no domain is selected */}
+      {!selectedDomain && (
+        <div className="selection-container">
+          {/* IMTech Section */}
+          <div className="program-category">
+            <h3>Integrated MTech</h3>
+            <div className="branch-buttons">
+              {[...new Set(imtechBranches)].map((branch) => (
+                <button
+                  key={`imtech-${branch}`}
+                  className="branch-btn"
+                  onClick={() => handleDomainSelection(`iMTech ${branch}`, "2025")}
+                >
+                  {branch}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* MTech Section */}
+          <div className="program-category">
+            <h3>MTech</h3>
+            <div className="branch-buttons">
+              {[...new Set(mtechBranches)].map((branch) => (
+                <button
+                  key={`mtech-${branch}`}
+                  className="branch-btn"
+                  onClick={() => handleDomainSelection(`MTech ${branch}`, "2025")}
+                >
+                  {branch}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {error && <div className="error-message">{error}</div>}
+
+      {loading && <div className="loading-message">Loading timetable...</div>}
+
+      {!loading && !error && selectedDomain && (
+        <div className="timetable-section">
+          {/* Sticky Navigation Container */}
+          <div className="timetable-nav-sticky">
+            <div className="timetable-header">
+              <h2>{selectedDomainName} - COURSE TIMETABLE</h2>
+              <button className="back-to-domains-btn" onClick={() => setSelectedDomain(null)}>
+                ← Back to Domains
+              </button>
+            </div>
+
+            {/* Day Tabs */}
+            <div className="day-tabs">
+              {days.map((day) => (
+                <button
+                  key={day}
+                  className={`day-tab ${selectedDay === day ? "active" : ""}`}
+                  onClick={() => setSelectedDay(day)}
+                >
+                  {day}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Courses for Selected Day */}
+          <div className="day-courses">
+            {coursesForDay.length === 0 ? (
+              <div className="no-courses">
+                <i className="fas fa-calendar-day" style={{ fontSize: "48px", marginBottom: "20px", display: "block", color: "#cbd5e1" }}></i>
+                No classes scheduled for {selectedDay}
+              </div>
+            ) : (
+              <div className="courses-grid">
+                {coursesForDay.map((course) => (
+                  <div key={course.id} className="course-card-large">
+                    <div className="course-time">
+                      <i className="fas fa-clock"></i> {course.schedule.time}
+                    </div>
+                    <div className="course-header">
+                      <h3>{course.name}</h3>
+                      <span className="course-code-badge">{course.c_code}</span>
+                    </div>
+                    <div className="course-details">
+                      <div className="detail-row">
+                        <i className="fas fa-chalkboard-teacher"></i>
+                        <span>{course.faculty?.f_name || "TBA"}</span>
+                      </div>
+                      <div className="detail-row">
+                        <i className="fas fa-map-marker-alt"></i>
+                        <span>{course.schedule.room}</span>
+                      </div>
+                      <div className="detail-row">
+                        <i className="fas fa-book"></i>
+                        <span>{course.credit} Credits</span>
+                      </div>
+                    </div>
+                    <Link to={`/courses/${course.id}/students`} className="view-students-btn-large">
+                      View Enrolled Students →
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default DomainList;

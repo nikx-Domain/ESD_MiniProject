@@ -16,12 +16,13 @@ public class schedule {
         this.id = id;
     }
 
-    public schedule( String time, String day, String room) {
+    public schedule(String time, String day, String room) {
 
         this.time = time;
         this.day = day;
         this.room = room;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -55,9 +56,10 @@ public class schedule {
     public void setRoom(String room) {
         this.room = room;
     }
+
     @OneToOne
     @JoinColumn(name = "course_id")
+    @com.fasterxml.jackson.annotation.JsonBackReference
     private com.example.jpas.entity.course course;
-
 
 }
