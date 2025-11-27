@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "google.oauth",
+      "type": "com.example.jpas.config.GoogleOAuthProperties",
+      "sourceType": "com.example.jpas.config.GoogleOAuthProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "google.oauth.client-id",
+      "type": "java.lang.String",
+      "sourceType": "com.example.jpas.config.GoogleOAuthProperties"
+    }
+  ],
+  "hints": []
+}

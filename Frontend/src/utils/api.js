@@ -4,20 +4,20 @@ const api = axios.create({
   baseURL: "http://localhost:8090/api",
 });
 
-api.interceptors.request.use(
-  (config) => {
-    if (config.url !== "v1//auth/admin/login") {
-      const user = JSON.parse(localStorage.getItem("user"));
-      if (user && user.jwt) {
-        config.headers.Authorization = `Bearer ${user.jwt}`;
-      }
+api.interceptors.request.use((config) => {
+  const isAuthRequest =
+    config.url?.includes("auth/admin/google") ||
+    config.url?.includes("auth/google");
+
+  if (!isAuthRequest) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (user?.token) {
+      config.headers = config.headers || {};
+      config.headers.Authorization = `Bearer ${user.token}`;
     }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
   }
-);
+  return config;
+});
 
 export const fetchDomains = () => 
     api.get("v1/domain");
@@ -28,5 +28,5 @@ export const fetchCourseByDomain = (domainId) =>
 export const fetchStudents = (courseId) =>
   api.get(`courses/${courseId}/students`);
 
-export const login = (loginData) =>
-     api.post("/auth/admin/login", loginData);
+export const loginWithGoogle = (credential) =>
+  api.post("/v1/auth/admin/google", { credential });

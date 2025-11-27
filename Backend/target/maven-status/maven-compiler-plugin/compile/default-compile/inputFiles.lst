@@ -1,10 +1,11 @@
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\GoogleOAuthProperties.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\mapper\CustomerMapper.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\StudentService.java
-C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\dto\LoginRequest.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\student.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\schedule.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\DomainRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\SecurityConfig.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\dto\GoogleLoginRequest.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\Exception\UserNotFoundException.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\CustomerRepo.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\DomainService.java
@@ -27,7 +28,6 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\entity\User.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\DomainIdService.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\DomainController.java
-C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\helper\JWTHelper.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\config\CorsConfig.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\StudentController.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\CourseController.java
@@ -38,4 +38,5 @@ C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\examp
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\JpasApplication.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\controller\ScheduleController.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\UserRepo.java
+C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\service\GoogleOAuthService.java
 C:\Users\NIKHIL AGRAWAL\Documents\Repository\ESD\Backend\src\main\java\com\example\jpas\repo\FacultyRepo.java

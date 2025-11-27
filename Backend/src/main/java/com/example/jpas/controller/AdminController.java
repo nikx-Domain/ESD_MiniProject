@@ -1,6 +1,6 @@
 package com.example.jpas.controller;
 
-import com.example.jpas.dto.LoginRequest;
+import com.example.jpas.dto.GoogleLoginRequest;
 import com.example.jpas.service.AdminService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,8 +19,8 @@ import jakarta.validation.Valid;
 public class AdminController {
     private final AdminService adminservice;
 
-    @PostMapping("auth/admin/login")
-    public ResponseEntity<?> login(@RequestBody @Valid LoginRequest request) {
+    @PostMapping("auth/admin/google")
+    public ResponseEntity<?> login(@RequestBody @Valid GoogleLoginRequest request) {
         try {
             return ResponseEntity.ok(adminservice.login(request));
         } catch (IllegalArgumentException e) {
